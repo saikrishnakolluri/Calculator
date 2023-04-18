@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="mycalc.css" />
+    <script>
+        function calculate(operation) {
+            const firstNumber = parseFloat(document.getElementById('fnum').value);
+            const secondNumber = parseFloat(document.getElementById('snum').value);
+            let result;
+            if (isNaN(firstNumber) || isNaN(secondNumber)) {
+                alert("Provide correct input!!!..")
+                result = 'Invalid input';
+            } else {
+                if (operation === '+') {
+                    result = firstNumber + secondNumber;
+                } else if (operation === '-') {
+                    result = firstNumber - secondNumber;
+                } else if (operation === '*') {
+                    result = firstNumber * secondNumber;
+                } else if (operation === '/') {
+                    if (secondNumber === 0) {
+                        result = 'Cannot divide by zero';
+                    } else {
+                        result = firstNumber / secondNumber;
+                    }
+                }
+            }
+            document.getElementById('rnum').value = result;
+        }
+    </script>
+</head>
+
+<body>
+
+
+    <div>
+
+
+        <p><b>Calculator</b></p>
+
+    </div>
+
+
+    <div class="calp">
+        <table>
+            <tr>
+                <td colspan="2" align="center"> Calculator</td>
+            </tr>
+
+            <tr>
+                <td>First Number</td>
+                <td><input type="text" id="fnum" ivalue="" /></td>
+            </tr>
+
+
+            <tr>
+                <td>Second Number</td>
+                <td><input type="text" id="snum" value="" /></td>
+            </tr>
+
+
+            <tr>
+                <td>Result</td>
+                <td><input type="text" id="rnum" value="" /></td>
+            </tr>
+
+
+
+        </table>
+        <br>
+        <button onclick="calculate('+')">Add</button>
+        <button onclick="calculate('-')">Subtract</button>
+        <button onclick="calculate('*')">Multiply</button>
+        <button onclick="calculate('/')">Divide</button>
+
+
+    </div>
+
+</body>
+
+</html>
